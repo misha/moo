@@ -11,4 +11,4 @@ const MAX_FS_SIZE = 10;
 const MAX_ERRORS = 3;
 
 /// Points deducted for retrying a level.
-const REDO_COST = 5000;
+const REDO_COST = 1000;
