@@ -1,0 +1,37 @@
+name: Itch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy
+    if: contains(github.event.head_commit.message, '!itch')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+      - name: Get Dependencies
+        run: flutter pub get
+      - name: Build Web
+        run: flutter build web
+      - name: Fix Base URL
+        run: sed -i 's/base href="\/"/base href=".\/"/g' ./build/web/index.html
+      - name: Create ZIP
+        uses: vimtor/action-zip@v1.1
+        with:
+          files: ./build/web
+          dest: ./web.zip
+      - name: Itch Butler Deploy
+        uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{ secrets.ITCH_BUTLER_API_KEY }}
+          gameData: ./web.zip
+          itchUsername: msoliter
+          itchGameId: moo
+          buildChannel: web

@@ -1,0 +1,21 @@
+targets:
+  $default:
+    sources:
+      include:
+        - $package$
+        - pubspec.yaml
+        - pubspec.lock
+        - assets/**
+        - lib/**
+        - test/**
+        - widgetbook/**
+    builders:
+      flutter_gen_runner:
+        options:
+          output: lib/gen/
+          line_length: 120
+          parse_metadata: true
+      riverpod_generator:
+        options:
+          provider_name_suffix: "Pod"
+          provider_family_name_suffix: "Pod"
