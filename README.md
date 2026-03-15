@@ -1,5 +1,7 @@
 # Ministry of Order
 
+![terminal header](/assets/itch/screenshot2.gif)
+
 A dystopian file-sorting game with procedurally generated levels.
 
 Play the game on Itch.io [here](https://msoliter.itch.io/moo). The game's widgetbook is hosted [here](https://misha.jp/moo).
@@ -7,6 +9,8 @@ Play the game on Itch.io [here](https://msoliter.itch.io/moo). The game's widget
 Built with [Flutter](https://flutter.dev/) and [Flame](https://pub.dev/packages/flame).
 
 Made in a week for the [Flame Game Jam 2026](https://itch.io/jam/flame-game-jam-2026).
+
+![procgen scramble](/assets/itch/screenshot1.gif)
 
 # Generative AI
 
